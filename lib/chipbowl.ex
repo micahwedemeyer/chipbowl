@@ -34,9 +34,8 @@ defmodule Chipbowl do
 
     Enum.each(players, &(Player.draw(&1, 3)))
 
-    drawn = Enum.map(players, &Player.get_chips/1)
+    drawn = Enum.map(players, &Player.get_as_colors/1)
     IO.inspect(drawn)
     IO.inspect(BowlServer.get_chips(bowl))
-    :ok
   end
 end

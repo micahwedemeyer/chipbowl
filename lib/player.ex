@@ -15,4 +15,18 @@ defmodule Player do
   def get_chips(pid) do
     Agent.get(pid, fn({chips, bowl}) -> chips end)
   end
+
+  def get_as_colors(pid) do
+    chips = get_chips(pid)
+
+    greens = Enum.count(chips, &(&1 == 0))
+    blues = Enum.count(chips, &(&1 == 1))
+    reds = Enum.count(chips, &(&1 == 2))
+
+    [
+      greens: greens,
+      blues: blues,
+      reds: reds
+    ]
+  end
 end
