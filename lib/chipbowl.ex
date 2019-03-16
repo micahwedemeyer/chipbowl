@@ -1,7 +1,7 @@
 defmodule Chipbowl do
   alias NimbleCSV.RFC4180, as: CSV
 
-  @runs 50_000
+  @runs 5_000
 
   @player_names [
     "Jordan",
@@ -67,7 +67,7 @@ defmodule Chipbowl do
     drawn = Enum.map(players, &Player.get_as_colors/1)
     csv_str = print_csv(players, drawn)
 
-    {:ok, file} = File.open("cache/results.csv", [:write])
+    {:ok, file} = File.open("results/results.csv", [:write])
     IO.binwrite(file, csv_str)
     File.close(file)
 

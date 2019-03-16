@@ -1,21 +1,19 @@
 # Chipbowl
 
-**TODO: Add description**
+Distributions of the chips drawn from the bowl
+
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `chipbowl` to your list of dependencies in `mix.exs`:
+`mix deps.get`
 
-```elixir
-def deps do
-  [
-    {:chipbowl, "~> 0.1.0"}
-  ]
-end
+## Running
+
+```
+iex -S mix
+Chipbowl.run()
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/chipbowl](https://hexdocs.pm/chipbowl).
+## Output
 
+It will ouput a `results.csv` in the `cache` directory
