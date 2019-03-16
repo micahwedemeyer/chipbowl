@@ -16,8 +16,4 @@ defmodule BowlTest do
   	assert drawn == [1, 1, 0]
   	assert chips == [19, 8, 5]
   end
-
-  test "greets the world" do
-    assert Chipbowl.hello() == :world
-  end
 end
