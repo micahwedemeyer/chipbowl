@@ -1,7 +1,7 @@
 defmodule Chipbowl do
   alias NimbleCSV.RFC4180, as: CSV
 
-  @runs 5_000
+  @runs 50_000
 
   @player_names [
     "Jordan",
