@@ -29,13 +29,18 @@ defmodule Chipbowl do
     {players, bowl}
   end
 
+  def run_draw(bowl, players) do
+    Enum.each(players, &(Player.draw(&1, 3)))
+    BowlServer.refill(bowl)
+  end
+
   def run do
     {players, bowl} = setup()
 
-    Enum.each(players, &(Player.draw(&1, 3)))
+    (0..9999)
+    |> Enum.each(fn(_) -> run_draw(bowl, players) end)
 
     drawn = Enum.map(players, &Player.get_as_colors/1)
     IO.inspect(drawn)
-    IO.inspect(BowlServer.get_chips(bowl))
   end
 end

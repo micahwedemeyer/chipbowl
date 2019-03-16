@@ -19,6 +19,10 @@ defmodule BowlServer do
     GenServer.call(pid, {:get_chips})
   end
 
+  def refill(pid) do
+    GenServer.cast(pid, {:refill})
+  end
+
   def init(:ok) do
     {:ok, @chip_counts}
   end
@@ -29,4 +33,6 @@ defmodule BowlServer do
   end
 
   def handle_call({:get_chips}, _from, chips), do: {:reply, chips, chips}
+
+  def handle_cast({:refill}, state), do: {:noreply, @chip_counts}
 end
