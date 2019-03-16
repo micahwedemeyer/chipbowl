@@ -13,7 +13,7 @@ defmodule BowlTest do
 
   	{drawn, chips} = Bowl.draw_n(chips, 3)
 
-  	assert drawn == [1, 1, 0]
-  	assert chips == [19, 8, 5]
+    assert drawn == [1, 0, 0]
+    assert chips == [18, 9, 5]
   end
 end

@@ -23,9 +23,12 @@ defmodule Bowl do
     {first_draw ++ other_draws, chips}
   end
 
-  # Have to grab a chip still in the bowl...
   defp choose_legal(chips, colors) do
-    color_drawn = Enum.random(0..colors - 1)
-    if Enum.at(chips, color_drawn) > 0, do: color_drawn, else: choose_legal(chips, colors)
+    boundaries = Enum.scan(chips, 0, &(&1 + &2))
+    total_chips = Enum.sum(chips)
+
+    chip_drawn = Enum.random(0..total_chips - 1)
+
+    Enum.find_index(boundaries, &(chip_drawn < &1))
   end
 end

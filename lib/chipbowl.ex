@@ -1,4 +1,5 @@
 defmodule Chipbowl do
+  @runs 10_000
   @moduledoc """
   Documentation for Chipbowl.
   """
@@ -37,10 +38,11 @@ defmodule Chipbowl do
   def run do
     {players, bowl} = setup()
 
-    (0..9999)
+    (0..@runs - 1)
     |> Enum.each(fn(_) -> run_draw(bowl, players) end)
 
     drawn = Enum.map(players, &Player.get_as_colors/1)
     IO.inspect(drawn)
+    :ok
   end
 end
