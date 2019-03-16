@@ -24,9 +24,9 @@ defmodule Player do
     reds = Enum.count(chips, &(&1 == 2))
 
     [
-      greens: greens,
-      blues: blues,
-      reds: reds
+      green: greens,
+      blue: blues,
+      red: reds
     ]
   end
 end
