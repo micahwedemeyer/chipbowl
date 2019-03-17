@@ -8,12 +8,13 @@ defmodule Player do
   def draw(pid, n \\ 1) do
     Agent.update(pid, fn({chips, bowl}) ->
       drawn = BowlServer.draw(bowl, n)
-      {chips ++ drawn, bowl}
+      {drawn ++ chips, bowl}
     end)
   end
 
   def get_chips(pid) do
-    Agent.get(pid, fn({chips, bowl}) -> chips end)
+    # Reverse them so they match the actual draw order
+    Agent.get(pid, fn({chips, bowl}) -> Enum.reverse(chips) end)
   end
 
   def get_as_colors(pid) do
